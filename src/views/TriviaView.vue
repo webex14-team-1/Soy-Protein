@@ -26,11 +26,12 @@
 export default {
   date() {
     return {
-      imagepath: require("@/")
+      imagepath: require("@/views/images/latte.jpg"),
 
       feedback: "",
       quiz: {
         text: "エスプレッソをミルクで１対９で割った飲み物は？",
+        Image: "@/views/images/cafe.jpg",
         choices: [
           {
             text: "カフェオレ",
@@ -62,6 +63,9 @@ export default {
   methods: {
     choice(i) {
       this.feedback = this.quiz.chooices[i].feedback
+      if (this.quiz.choice[i].isCorrect === true) {
+        this.imagepath = require("@/views.images.cafe.jpg")
+      }
 
     },
   },
