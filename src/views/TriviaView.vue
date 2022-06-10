@@ -18,58 +18,44 @@
       {{ quiz.choices[3].text }}
     </button>
   </div>
-  //表示されている問題を自分で選択してクイズにしたい。
+
   <div>{{ feedback }}</div>
 </template>
 
 <script>
 export default {
-  date() {
+  data() {
     return {
       imagepath: require("@/views/images/latte.jpg"),
 
       feedback: "",
-      quiz: {
-        text: "エスプレッソをミルクで１対９で割った飲み物は？",
-        Image: "@/views/images/cafe.jpg",
-        choices: [
+      quizs: { [
+       {
+          text: "エスプレッソをミルクで１対９で割った飲み物は？",
+         Image: "@/views/images/cafe.jpg",
+         choices: [
           {
             text: "カフェオレ",
             isCorrect: false,
             feedback:
-             "残念！カフェオレはドリップコーヒーとミルクが５対５で割れた飲み物です！",
-           },
-          {
-            text:"カフェラテ",
-            isCorrect: true,
-            feedback: "正解！スターバックスでカフェラテを頼むときは「スターバックスラテ」！",
+              "残念！カフェオレはドリップコーヒーとミルクが５対５で割れた飲み物です！",
+          }
 
-          },
-          {
-            text:"カフェモカ",
-            isCorrect: false,
-            feedback: "カフェモカはエスプレッソ・ミルク・チョコレートシロップの割合が、2: 7:1の飲み物！",
-         },
-         {
-            text:"カプチーノ",
-            isCorrect: false,
-            feedback: "カプチーノはエスプレッソと温めたミルクとフォームミルクが1:1:1の飲み物！",
-
-         },
-        ],
-      },
+        ]
+       }
+       ]
     },
+    }
   },
   methods: {
     choice(i) {
-      this.feedback = this.quiz.chooices[i].feedback
+      this.feedback = this.quiz.chooices[i].feedback;
       if (this.quiz.choice[i].isCorrect === true) {
-        this.imagepath = require("@/views.images.cafe.jpg")
+        this.imagepath = require("@/views/images/cafe.jpg");
       }
-
     },
   },
-}
+};
 </script>
 
 <style>
