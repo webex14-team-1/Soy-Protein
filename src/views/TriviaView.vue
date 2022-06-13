@@ -2,7 +2,11 @@
   <h1>StarBucks Trivia</h1>
   <div class="Trivia"></div>
   <h2>Q. {{ quiz.text }}</h2>
-  <img class="quiz-image" v-bind:src="imagepath" alt="" />
+  <img
+    class="quiz-image"
+    v-bind:src="imagepath"
+    alt="@/views/images/stb.cup.jpg"
+  />
 
   <div class="container">
     <button v-on:click="choice(0)">
@@ -90,6 +94,7 @@ export default {
             ],
           },
         ],
+
         quiz3:[
           {
             text:"スタバのドリンクで２番目に大きいサイズは？",
@@ -118,20 +123,19 @@ export default {
             ]
           }
         ],
-
-        }
       },
     };
-  },
+   },
+}
   methods: {
-    choice(i) {
+    choice() {
       this.feedback = this.quiz.chooices[i].feedback;
       if (this.quiz.choice[i].isCorrect === true) {
         this.imagepath = require("@/views/images/cafe.jpg");
       }
-    },
-  },
-}
+    }
+    choice()
+  }
 </script>
 
 <style>
