@@ -5,7 +5,8 @@
     <router-link to="/samplepage">Samplepage</router-link> |
     <router-link to="/favorite">Favorite</router-link>
   </nav>
-  <router-view />
+  <!-- <router-view /> -->
+  <router-view></router-view>
 </template>
 
 <style>

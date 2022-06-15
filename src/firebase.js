@@ -12,6 +12,7 @@ const firebaseConfig = {
 };
 
 // Firebaseアプリオブジェクトを初期化
+// アプリで Firebase を初期化して、Firebase アプリ オブジェクトを作成します。
 const app = initializeApp(firebaseConfig);
 // Firestoreを読み込み、db(databaseの略)として export
 export const db = getFirestore(app);

@@ -4,8 +4,13 @@
     <div class="gallery">
       <div v-for="(drink, index) in drinks" :key="drink.id">
         <div class="com8">
-          <h4>{{ drink }}</h4>
-          <button v-on:click="registerFavorite(index)">お気に入り</button>
+          <h4>{{ drink.drink }}</h4>
+          <button
+            v-on:click="registerFavorite(index)"
+            :disabled="drink.switchDisabled"
+          >
+            {{ drink.changeName }}
+          </button>
         </div>
       </div>
     </div>
@@ -16,29 +21,85 @@
 </template>
 
 <script>
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { db } from "../firebase";
 export default {
   data() {
     return {
       drinks: [
-        "ドリンク1",
-        "ドリンク2",
-        "ドリンク3",
-        "ドリンク4",
-        "ドリンク5",
-        "ドリンク6",
-        "ドリンク7",
-        "ドリンク8",
-        "ドリンク9",
+        // 仮データ構造
+        {
+          drink: "ドリンク1",
+          price: 500,
+          count: 0,
+          changeName: "お気に入り",
+        },
+        {
+          drink: "ドリンク2",
+          price: 600,
+          count: 0,
+          changeName: "お気に入り",
+        },
+        {
+          drink: "ドリンク3",
+          price: 700,
+          count: 0,
+          changeName: "お気に入り",
+        },
+        {
+          drink: "ドリンク4",
+          price: 550,
+          count: 0,
+          changeName: "お気に入り",
+        },
+        {
+          drink: "ドリンク5",
+          price: 650,
+          count: 0,
+          changeName: "お気に入り",
+        },
+        {
+          drink: "ドリンク6",
+          price: 300,
+          count: 0,
+          changeName: "お気に入り",
+        },
+        {
+          drink: "ドリンク7",
+          price: 580,
+          count: 0,
+          changeName: "お気に入り",
+        },
+        {
+          drink: "ドリンク8",
+          price: 800,
+          count: 0,
+          changeName: "お気に入り",
+        },
+        {
+          drink: "ドリンク9",
+          price: 900,
+          count: 0,
+          changeName: "お気に入り",
+        },
       ],
     };
   },
   methods: {
-    registerFavorite(drink_id) {
+    registerFavorite(index) {
+      if (this.drinks[index].changeName === "お気に入り") {
+        this.drinks[index].changeName = "登録済み";
+        this.drinks[index].switchDisabled = true;
+      }
       /* firestoreに追加するコードを書く */
       addDoc(collection(db, "favorite"), {
-        text: this.drinks[drink_id],
+        drink: this.drinks[index].drink,
+        price: this.drinks[index].price,
+        count: this.drinks[index].count,
+        switchDisabled: false,
+        changeDetail: "詳細へ",
+        onOff: false,
+        registerDate: Timestamp.fromDate(new Date()),
       });
     },
   },
