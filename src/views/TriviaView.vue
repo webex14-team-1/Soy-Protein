@@ -1,25 +1,37 @@
 <template>
   <h1>StarBucks Trivia</h1>
   <div class="Trivia"></div>
-  <h2>Q. {{ quiz.text }}</h2>
-  <img
-    class="quiz-image"
-    v-bind:src="imagepath"
-    alt="@/views/images/stb.cup.jpg"
-  />
+  <img class="trivia-image" v-bind:src="imagepath" alt="スタバ画像" />
 
-  <div class="container">
+  <p>エスプレッソをミルクで１対９で割った飲み物は？</p>
+  <p>スタバにタンブラーを持参すると何円引きになる？</p>
+  <p>スタバのドリンクで２番目に大きいサイズは？</p>
+
+  <div
+    class="container"
+    v-for="(choice, index) in quizlist.quiz1.choices"
+    :key="index"
+  >
     <button v-on:click="choice(0)">
-      {{ quiz.choices[0].text }}
+      {{ choice.text }}
     </button>
+  </div>
+  <div
+    class="container"
+    v-for="(choice, index) in quizlist.quiz2.choices"
+    :key="index"
+  >
     <button v-on:click="choice(1)">
-      {{ quiz.choices[1].text }}
+      {{ choice.text }}
     </button>
+  </div>
+  <div
+    class="container"
+    v-for="(choice, index) in quizlist.quiz3.choices"
+    :key="index"
+  >
     <button v-on:click="choice(2)">
-      {{ quiz.choices[2].text }}
-    </button>
-    <button v-on:click="choice(3)">
-      {{ quiz.choices[3].text }}
+      {{ choice.text }}
     </button>
   </div>
 
@@ -30,44 +42,44 @@
 export default {
   data() {
     return {
-      imagepath: require("@/views/images/latte.jpg"),
-
+      imagepath: require("@/views/images/stb.logo.png"),
       feedback: "",
       quizlist: {
-        quiz1: [
-          {
-            text: "エスプレッソをミルクで１対９で割った飲み物は？",
-            Image: "@/views/images/cafe.jpg",
-            choices: [
-              {
-                text: "カフェオレ",
-                isCorrect: false,
-                feedback:
-                  "残念！カフェオレはドリップコーヒーとミルクが５対５で割れた飲み物です！",
-              },
-              {
-                text: "カフェラテ",
-                isCorrect: true,
-                feedback:
-                  "正解！スターバックスでカフェラテを頼むときは「スターバックスラテ」！",
-              },
-              {
-                text: "カフェモカ",
-                isCorrect: false,
-                feedback:
-                  "カフェモカはエスプレッソ・ミルク・チョコレートシロップの割合が、2: 7:1の飲み物！",
-              },
-              {
-                text: "カプチーノ",
-                isCorrect: false,
-                feedback:
-                  "カプチーノはエスプレッソと温めたミルクとフォームミルクが1:1:1の飲み物！",
-              },
-            ],
-          },
-        ],
+        quiz1: {
+          imagepath: require("@/views/images/latte.jpg"),
+          text: "エスプレッソをミルクで１対９で割った飲み物は？",
+          Image: "@/views/images/cafe.jpg",
+          choices: [
+            {
+              text: "カフェオレ",
+              isCorrect: false,
+              feedback:
+                "残念！カフェオレはドリップコーヒーとミルクが５対５で割れた飲み物です！",
+            },
+            {
+              text: "カフェラテ",
+              isCorrect: true,
+              feedback:
+                "正解！スターバックスでカフェラテを頼むときは「スターバックスラテ」！",
+            },
+            {
+              text: "カフェモカ",
+              isCorrect: false,
+              feedback:
+                "カフェモカはエスプレッソ・ミルク・チョコレートシロップの割合が、2: 7:1の飲み物！",
+            },
+            {
+              text: "カプチーノ",
+              isCorrect: false,
+              feedback:
+                "カプチーノはエスプレッソと温めたミルクとフォームミルクが1:1:1の飲み物！",
+            },
+          ],
+        },
+
         quiz2: [
           {
+            imagepath: require("@/views/images/tumbler.jpg"),
             text: "スタバにタンブラーを持参すると何円引きになる？",
             Image: "@/views/images/tumbler.jpg",
             choices: [
@@ -95,47 +107,48 @@ export default {
           },
         ],
 
-        quiz3:[
+        quiz3: [
           {
-            text:"スタバのドリンクで２番目に大きいサイズは？",
-            Image:"@/views/images/stb.size.jpg",
+            imagepath: require("@/views/images/star.size1.jpg"),
+            text: "スタバのドリンクで２番目に大きいサイズは？",
+            Image: "@/views/images/stb.size.jpg",
             choices: [
               {
-                text:"トール",
+                text: "トール",
                 isCorrect: false,
                 feedback: "残念!トールは350㎖!下から２番目のサイズ！",
               },
               {
-                text:"ベンティー",
+                text: "ベンティー",
                 isCorrect: false,
                 feedback: "おしい!ベンティーは590㎖!1番大きいサイズ!",
               },
               {
-                text:"ショート",
+                text: "ショート",
                 isCorrect: false,
                 feedback: "残念!ショートは240㎖!１番小さいサイズ!",
               },
               {
-                text:"グランデ",
+                text: "グランデ",
                 isCorrect: true,
                 feedback: "正解!グランデは470㎖!",
               },
-            ]
-          }
+            ],
+          },
         ],
       },
     };
-   },
-}
+  },
+
   methods: {
-    choice() {
-      this.feedback = this.quiz.chooices[i].feedback;
-      if (this.quiz.choice[i].isCorrect === true) {
+    choices() {
+      this.feedback = this.quizlist.quiz1.choices[1].feedback;
+      if (this.quiz.choices.isCorrect === true) {
         this.imagepath = require("@/views/images/cafe.jpg");
       }
-    }
-    choice()
-  }
+    },
+  },
+};
 </script>
 
 <style>
