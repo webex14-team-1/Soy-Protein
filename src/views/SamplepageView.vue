@@ -22,12 +22,17 @@
 
 <script>
 import { collection, addDoc, Timestamp } from "firebase/firestore";
+// import { getStorage, ref } from "firebase/storage";
 import { db } from "../firebase";
+// const storage = getStorage();
+// const storageRef = ref(storage);
+// const imagesRef = ref(storage, "images");
 export default {
   data() {
     return {
       drinks: [
         // 仮データ構造
+        // changeNameなんとかしたい
         {
           drink: "ドリンク1",
           price: 500,

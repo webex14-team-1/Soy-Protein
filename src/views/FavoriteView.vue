@@ -67,8 +67,8 @@ export default {
         this.favorite_drinks[index].onOff = false;
       }
     },
-    deleteFavorite(id) {
-      deleteDoc(doc(db, "favorite", id));
+    async deleteFavorite(id) {
+      await deleteDoc(doc(db, "favorite", id));
       location.reload();
     },
     // sort : viewRanking, viewNew, viewRegister
