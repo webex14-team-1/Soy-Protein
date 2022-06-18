@@ -1,0 +1,128 @@
+[
+  {
+    "name": "バニラシロップ",
+    "sweetlevel": 3,
+    "price": 50,
+    "customimage": "syrup"
+  },
+  {
+    "name": "クラシックシロップ",
+    "sweetlevel": 3,
+    "price": 100,
+    "customimage": "syrup"
+  },
+  {
+    "name": "キャラメルシロップ",
+    "sweetlevel": 1,
+    "price": 50,
+    "customimage": "syrup"
+  },
+  {
+    "name": "モカシロップ",
+    "sweetlevel": 1,
+    "price": 100,
+    "customimage": "syrup"
+  },
+  {
+    "name": "ホワイトモカシロップ",
+    "sweetlevel": 2,
+    "price": 50,
+    "customimage": "syrup"
+  },
+  {
+    "name": "アーモンドトフィーシロップ",
+    "sweetlevel": 3,
+    "price": 50,
+    "customimage": "syrup"
+  },
+  {
+    "name": "チャイシロップ",
+    "sweetlevel": 1,
+    "price": 100,
+    "customimage": "syrup"
+  },
+
+  {
+    "name": "ホイップクリーム",
+    "sweetlevel": 3,
+    "price": 50,
+    "customimage": "syrup"
+  },
+
+  {
+    "name": "チョコレートチップ",
+    "sweetlevel": 3,
+    "price": 50,
+    "customimage": "syrup"
+  },
+
+  {
+    "name": "エスプレッソショット",
+    "sweetlevel": 3,
+    "price": 50,
+    "customimage": "syrup"
+  },
+
+  {
+    "name": "コーヒーロースト",
+    "sweetlevel": 3,
+    "price": 50,
+    "customimage": "syrup"
+  },
+
+  {
+    "name": "ムースフォームミルク",
+    "sweetlevel": 3,
+    "price": 50,
+    "customimage": "milk"
+  },
+
+  {
+    "name": "シトラス果肉",
+    "sweetlevel": 3,
+    "price": 50,
+    "customimage": ""
+  },
+
+  {
+    "name": "イングリッシュブレックファストティー",
+    "sweetlevel": 1,
+    "price": 100
+  },
+  {
+    "name": "アールグレイティー",
+    "sweetlevel": 1,
+    "price": 100,
+    "customimage": ""
+  },
+  {
+    "name": "ユースベリーティー",
+    "sweetlevel": 1,
+    "price": 100,
+    "customimage": ""
+  },
+  {
+    "name": "カモミールティー",
+    "sweetlevel": 1,
+    "price": 100,
+    "customimage": ""
+  },
+  {
+    "name": "ハイビスカスティー",
+    "sweetlevel": 1,
+    "price": 100,
+    "customimage": ""
+  },
+  {
+    "name": "ミントシトラスティー",
+    "sweetlevel": 1,
+    "price": 100,
+    "customimage": ""
+  },
+  {
+    "name": " ほうじ茶",
+    "sweetlevel": 1,
+    "price": 100,
+    "customimage": ""
+  }
+]

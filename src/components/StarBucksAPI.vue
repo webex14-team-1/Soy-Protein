@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div>
-      <h1>スターバックスカスタム</h1>
-    </div>
     <!-- 予算の選択 -->
     <div>
       <div>
@@ -17,14 +14,24 @@
       <div>
         <button v-on:click="getfrappuccino">フラペチーノ</button>
         <div v-if="openfrappuccino">
-          <select v-model="selecteddrink">
+          <select v-model="selecteddrink" v-on:click="deleteitem">
             <option disabled value="">Please Select</option>
             <option
               v-for="(frappuccino, index) in frappuccinos"
               v-bind:key="index"
               v-bind:value="frappuccino"
             >
-              <div>{{ frappuccino.product_name }} ${{ frappuccino.price }}</div>
+              <div>{{ frappuccino.product_name }}</div>
+            </option>
+          </select>
+          <select v-model="selectedsizeprice">
+            <option disabled value="">Please Select</option>
+            <option
+              v-for="(size_price, index) in selecteddrink.sizes_prices"
+              v-bind:key="index"
+              v-bind:value="size_price"
+            >
+              <div>{{ size_price.size }}{{ size_price.price }}</div>
             </option>
           </select>
         </div>
@@ -33,14 +40,24 @@
       <div>
         <button v-on:click="getespresso">エスプレッソ</button>
         <div v-if="openespresso">
-          <select v-model="selecteddrink">
+          <select v-model="selecteddrink" v-on:click="deleteitem">
             <option disabled value="">Please Select</option>
             <option
               v-for="(espresso, index) in espressos"
               v-bind:key="index"
               v-bind:value="espresso"
             >
-              {{ espresso.product_name }} ${{ espresso.price }}
+              {{ espresso.product_name }}
+            </option>
+          </select>
+          <select v-model="selectedsizeprice">
+            <option disabled value="">Please Select</option>
+            <option
+              v-for="(size_price, index) in selecteddrink.sizes_prices"
+              v-bind:key="index"
+              v-bind:value="size_price"
+            >
+              <div>{{ size_price.size }}{{ size_price.price }}</div>
             </option>
           </select>
         </div>
@@ -49,14 +66,24 @@
       <div>
         <button v-on:click="gettea">ティー</button>
         <div v-if="opentea">
-          <select v-model="selecteddrink">
+          <select v-model="selecteddrink" v-on:click="deleteitem">
             <option disabled value="">Please Select</option>
             <option
               v-for="(tea, index) in teas"
               v-bind:key="index"
               v-bind:value="tea"
             >
-              <div>{{ tea.product_name }} ${{ tea.price }}</div>
+              <div>{{ tea.product_name }}</div>
+            </option>
+          </select>
+          <select v-model="selectedsizeprice">
+            <option disabled value="">Please Select</option>
+            <option
+              v-for="(size_price, index) in selecteddrink.sizes_prices"
+              v-bind:key="index"
+              v-bind:value="size_price"
+            >
+              <div>{{ size_price.size }}{{ size_price.price }}</div>
             </option>
           </select>
         </div>
@@ -65,14 +92,24 @@
       <div>
         <button v-on:click="getdrip">ドリップ</button>
         <div v-if="opendrip">
-          <select v-model="selecteddrink">
+          <select v-model="selecteddrink" v-on:click="deleteitem">
             <option disabled value="">Please Select</option>
             <option
               v-for="(drip, index) in drips"
               v-bind:key="index"
               v-bind:value="drip"
             >
-              <div>{{ drip.product_name }}${{ drip.price }}</div>
+              <div>{{ drip.product_name }}</div>
+            </option>
+          </select>
+          <select v-model="selectedsizeprice">
+            <option disabled value="">Please Select</option>
+            <option
+              v-for="(size_price, index) in selecteddrink.sizes_prices"
+              v-bind:key="index"
+              v-bind:value="size_price"
+            >
+              <div>{{ size_price.size }}{{ size_price.price }}</div>
             </option>
           </select>
         </div>
@@ -81,7 +118,7 @@
       <div>
         <button v-on:click="getother">その他</button>
         <div v-if="openother">
-          <select v-model="selecteddrink">
+          <select v-model="selecteddrink" v-on:click="deleteitem">
             <option disabled value="">Please Select</option>
             <option
               v-for="(other, index) in others"
@@ -89,7 +126,16 @@
               v-bind:value="other"
             >
               <div>{{ other.product_name }}</div>
-              <div>${{ other.price }}</div>
+            </option>
+          </select>
+          <select v-model="selectedsizeprice">
+            <option disabled value="">Please Select</option>
+            <option
+              v-for="(size_price, index) in selecteddrink.sizes_prices"
+              v-bind:key="index"
+              v-bind:value="size_price"
+            >
+              <div>{{ size_price.size }}{{ size_price.price }}</div>
             </option>
           </select>
         </div>
@@ -101,7 +147,8 @@
     </div>
     <!-- ドリンクの情報を表示 -->
     <div>
-      選んだドリンク{{ selecteddrink.product_name }} ${{ selecteddrink.price }}
+      選んだドリンク{{ selecteddrink.product_name }}
+      {{ selectedsizeprice.size }}￥{{ selectedsizeprice.price }}
     </div>
   </div>
 </template>
@@ -119,26 +166,34 @@ export default {
       drips: "",
       others: "",
       selecteddrink: "",
+      selectedsizeprice: "",
       openfrappuccino: false,
       openespresso: false,
       opentea: false,
       opendrip: false,
       openother: false,
+      opendrink: false,
+      // openimage: false,
     }
   },
   methods: {
+    deleteitem: function () {
+      this.selectedsizeprice = ""
+    },
     // ドリンク情報の送信
     senddrink: function () {
-      this.custombudget = this.selectedbudget - this.selecteddrink.price
+      this.openimage = !this.openimage
+      this.custombudget = this.selectedbudget - this.selectedsizeprice.price
       this.selecteddrink.custombudget = this.custombudget
-      console.log(this.selecteddrink)
-      console.log(this.custombudget)
+      this.selecteddrink.price = this.selectedsizeprice.price
+      this.selecteddrink.size = this.selectedsizeprice.size
       this.$emit("get-selected-drink", this.selecteddrink)
     },
     // フラペチーノを表示（他のカテゴリが開いている場合は閉じる）
     getfrappuccino: function () {
       this.openfrappuccino = !this.openfrappuccino
-      // this.selecteddrink = ""
+      this.selecteddrink = ""
+      this.selectedsizeprice = ""
       if (this.openespresso === true) {
         this.openespresso = !this.openespresso
       }
@@ -151,13 +206,15 @@ export default {
       if (this.openother === true) {
         this.openother = !this.openother
       }
-
-      console.log(this.openfrappuccino)
+      if (this.openimage === true) {
+        this.openimage = !this.openimage
+      }
     },
     // エスプレッソを表示（他のカテゴリが開いている場合は閉じる）
     getespresso: function () {
       this.openespresso = !this.openespresso
       this.selecteddrink = ""
+      this.selectedsizeprice = ""
       if (this.openfrappuccino === true) {
         this.openfrappuccino = !this.openfrappuccino
       }
@@ -170,12 +227,15 @@ export default {
       if (this.openother === true) {
         this.openother = !this.openother
       }
-      console.log(this.openespresso)
+      if (this.openimage === true) {
+        this.openimage = !this.openimage
+      }
     },
     // ティーを表示（他のカテゴリが開いている場合は閉じる）
     gettea: function () {
       this.opentea = !this.opentea
       this.selecteddrink = ""
+      this.selectedsizeprice = ""
       if (this.openfrappuccino === true) {
         this.openfrappuccino = !this.openfrappuccino
       }
@@ -188,12 +248,15 @@ export default {
       if (this.openother === true) {
         this.openother = !this.openother
       }
-      console.log(this.opentea)
+      if (this.openimage === true) {
+        this.openimage = !this.openimage
+      }
     },
     // ドリップを表示（他のカテゴリが開いている場合は閉じる）
     getdrip: function () {
       this.opendrip = !this.opendrip
       this.selecteddrink = ""
+      this.selectedsizeprice = ""
       if (this.openfrappuccino === true) {
         this.openfrappuccino = !this.openfrappuccino
       }
@@ -206,13 +269,15 @@ export default {
       if (this.openother === true) {
         this.openother = !this.openother
       }
-      console.log(this.opendrip)
+      if (this.openimage === true) {
+        this.openimage = !this.openimage
+      }
     },
     //  その他を表示（他のカテゴリが開いている場合は閉じる）
     getother: function () {
       this.openother = !this.openother
       this.selecteddrink = ""
-      this.selecteddrink = ""
+      this.selectedsizeprice = ""
       if (this.openfrappuccino === true) {
         this.openfrappuccino = !this.openfrappuccino
       }
@@ -225,12 +290,13 @@ export default {
       if (this.opendrip === true) {
         this.opendrip = !this.opendrip
       }
-      console.log(this.openother)
+      if (this.openimage === true) {
+        this.openimage = !this.openimage
+      }
     },
   },
   // ページ読み込み時にjsonからドリンクの情報を持ってくる
   created: function () {
-    console.log(starbucks)
     this.frappuccinos = starbucks.filter(function (element) {
       return element.category2_list_path === "frappuccino"
     })
@@ -246,11 +312,6 @@ export default {
     this.others = starbucks.filter(function (element) {
       return element.category2_list_path === "others"
     })
-    console.log(this.frappuccinos)
-    console.log(this.espressos)
-    console.log(this.teas)
-    console.log(this.drips)
-    console.log(this.others)
   },
 }
 </script>

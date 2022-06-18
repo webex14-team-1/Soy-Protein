@@ -1,5 +1,5 @@
 <template>
-  <h1>こんにちは</h1>
+  <h1>スターバックスカスタム</h1>
   <StarBucksAPI @get-selected-drink="adddrink" />
   <SelectOption :fuga="newdrink" />
 </template>
