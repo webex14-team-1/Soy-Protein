@@ -173,7 +173,6 @@ export default {
       opendrip: false,
       openother: false,
       opendrink: false,
-      // openimage: false,
     }
   },
   methods: {
