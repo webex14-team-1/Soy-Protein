@@ -1,0 +1,29 @@
+<template>
+  <h1>こんにちは</h1>
+  <StarBucksAPI @get-selected-drink="adddrink" />
+  <SelectOption :fuga="newdrink" />
+</template>
+<script>
+import StarBucksAPI from "@/components/StarBucksAPI.vue"
+import SelectOption from "@/components/SelectOption.vue"
+
+export default {
+  components: {
+    StarBucksAPI,
+    SelectOption,
+  },
+  data() {
+    return {
+      newdrink: [],
+    }
+  },
+  methods: {
+    adddrink(value) {
+      this.newdrink = []
+      const drink = value
+      this.newdrink.unshift(drink)
+      console.log(this.newdrink)
+    },
+  },
+}
+</script>
