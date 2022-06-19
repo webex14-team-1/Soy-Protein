@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import SamplepageView from "../views/SamplepageView.vue";
 import FavoriteView from "../views/FavoriteView.vue";
+=======
+import { createRouter, createWebHistory } from "vue-router
+import TriviaView from "../views/TriviaView.vue";
+import { createRouter, createWebHistory } from "vue-router"
+import HomeView from "../views/HomeView.vue"
+import CustomView from "../views/CustomView.vue"
+>>>>>>> origin/master
 
 const routes = [
   {
@@ -9,16 +17,14 @@ const routes = [
     name: "home",
     component: HomeView,
   },
+
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    path: "/trivia",
+    name: "trivia",
+    component: TriviaView,
   },
   {
+<<<<<<< HEAD
     path: "/samplepage",
     name: "samplepage",
     component: SamplepageView,
@@ -29,10 +35,17 @@ const routes = [
     component: FavoriteView,
   },
 ];
+=======
+    path: "/custom",
+    name: "Custom",
+    component: CustomView,
+  },
+]
+>>>>>>> origin/master
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-});
+})
 
-export default router;
+export default router
