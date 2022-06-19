@@ -1,15 +1,11 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-<<<<<<< HEAD
     <router-link to="/about">About</router-link> |
     <router-link to="/samplepage">Samplepage</router-link> |
-    <router-link to="/favorite">Favorite</router-link>
-=======
-    <router-link to="/about">About</router-link>
-    <router-link to="/trivia">Trivia</router-link>
-    <router-link to="/custom">Custom</router-link>
->>>>>>> origin/master
+    <router-link to="/favorite">Favorite</router-link> |
+    <router-link to="/trivia">Trivia</router-link> |
+    <router-link to="/custom">Custom</router-link> |
   </nav>
   <!-- <router-view /> -->
   <router-view></router-view>
