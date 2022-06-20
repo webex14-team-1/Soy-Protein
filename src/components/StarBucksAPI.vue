@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="StarBucksAPI">
     <!-- 予算の選択 -->
     <div>
       <div>
@@ -9,9 +9,9 @@
       <div>選択項目: {{ decidedbudget }}</div>
     </div>
     <!-- ドリンク表示 -->
-    <div>
+    <div class="drink-container">
       <!-- フラペチーノ -->
-      <div>
+      <div class="frappuccino-container">
         <button v-on:click="getfrappuccino">フラペチーノ</button>
         <div v-if="openfrappuccino">
           <select v-model="selecteddrink" v-on:click="deleteitem">
@@ -37,7 +37,7 @@
         </div>
       </div>
       <!-- エスプレッソ -->
-      <div>
+      <div class="espresso-container">
         <button v-on:click="getespresso">エスプレッソ</button>
         <div v-if="openespresso">
           <select v-model="selecteddrink" v-on:click="deleteitem">
@@ -63,7 +63,7 @@
         </div>
       </div>
       <!-- ティー -->
-      <div>
+      <div class="tea-container">
         <button v-on:click="gettea">ティー</button>
         <div v-if="opentea">
           <select v-model="selecteddrink" v-on:click="deleteitem">
@@ -89,7 +89,7 @@
         </div>
       </div>
       <!-- ドリップ -->
-      <div>
+      <div class="drip-container">
         <button v-on:click="getdrip">ドリップ</button>
         <div v-if="opendrip">
           <select v-model="selecteddrink" v-on:click="deleteitem">
@@ -115,7 +115,7 @@
         </div>
       </div>
       <!-- その他 -->
-      <div>
+      <div class="other-container">
         <button v-on:click="getother">その他</button>
         <div v-if="openother">
           <select v-model="selecteddrink" v-on:click="deleteitem">
@@ -141,14 +141,14 @@
         </div>
       </div>
     </div>
-    <!-- ドリンク決定ボタン（CustomViewに情報を送信) -->
-    <div>
-      <button v-on:click="senddrink">ドリンク決定</button>
-    </div>
     <!-- ドリンクの情報を表示 -->
     <div>
       選んだドリンク{{ selecteddrink.product_name }}
       {{ selectedsizeprice.size }}￥{{ selectedsizeprice.price }}
+    </div>
+    <!-- ドリンク決定ボタン（CustomViewに情報を送信) -->
+    <div>
+      <button v-on:click="senddrink">ドリンク決定</button>
     </div>
   </div>
 </template>
@@ -314,3 +314,20 @@ export default {
   },
 }
 </script>
+<style>
+.frappuccino-container {
+  background-color: #fffffe;
+}
+.espresso-container {
+  background-color: #fffffe;
+}
+.drip-container {
+  background-color: #fffffe;
+}
+.tea-container {
+  background-color: #fffffe;
+}
+.other-container {
+  background-color: #fffffe;
+}
+</style>

@@ -1,7 +1,9 @@
 <template>
-  <h1>スターバックスカスタム</h1>
-  <StarBucksAPI @get-selected-drink="adddrink" />
-  <SelectOption :fuga="newdrink" />
+  <div class="Customview">
+    <h1>スターバックスカスタム</h1>
+    <StarBucksAPI @get-selected-drink="adddrink" />
+    <SelectOption :fuga="newdrink" />
+  </div>
 </template>
 <script>
 import StarBucksAPI from "@/components/StarBucksAPI.vue"

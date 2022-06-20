@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <!-- 甘さの選択 -->
+  <div class="SlectOption">
     <div>
       <div>甘さのレベルを教えてください</div>
       <select v-model.number="selectedsweetness">
@@ -17,19 +16,47 @@
       <div>選択項目: {{ selectedsweetness }}</div>
     </div>
     <div>
-      <button v-on:click="DrinkCustom">決定</button>
+      <div>濃厚さのレベルを教えてください</div>
+      <select v-model.number="selectedrichness">
+        <option disabled value="">Please Select</option>
+        <option
+          v-for="(rich, index) in Richness"
+          v-bind:key="index"
+          v-bind:value="rich"
+          type="number"
+        >
+          <div>{{ rich }}</div>
+        </option>
+      </select>
+      <div>選択項目: {{ selectedrichness }}</div>
     </div>
     <div>
+      <div>カロリーのレベルを教えてください</div>
+      <select v-model.number="selectedcalorie">
+        <option disabled value="">Please Select</option>
+        <option
+          v-for="(calorie, index) in Calories"
+          v-bind:key="index"
+          v-bind:value="calorie"
+          type="number"
+        >
+          <div>{{ calorie }}</div>
+        </option>
+      </select>
+      <div>選択項目: {{ selectedcalorie }}</div>
+    </div>
+    <div>
+      <button v-on:click="DrinkCustom">決定</button>
+    </div>
+    <div v-if="opencompletecustom">
       <div>おすすめのカスタムは</div>
       <div
-        v-for="(custom, index) in selectedcustom"
+        v-for="(custom, index) in completecustom.custom"
         v-bind:key="index"
         v-bind:value="custom"
       >
-        {{ custom.name }}
+        {{ custom.customname }}
       </div>
-
-      <div v-if="openwarning">カスタムできません</div>
     </div>
     <div>
       <div>
@@ -60,18 +87,27 @@ export default {
     return {
       customchoices: customchoices,
       gotdrink: this.fuga,
+      cutomstatus: "",
       Sweetness: [1, 2, 3],
+      Richness: [1, 2, 3],
+      Calories: [1, 2, 3],
       count: [1, 2, 3],
       decidedcustom: "",
-      decidedcustomprice: 0,
+      addingprice: 0,
+      getcustomprice: 0,
       customplan: "",
       selectedsweetness: "",
-      selectedchoices: "",
+      selectedrichness: "",
+      selectedcalorie: "",
+      selectedchoices: [],
+      getchoices: "",
       customnumber: "",
       selectedcustom: "",
       custombudget: 0,
-      openwarning: false,
       opencustomimage: false,
+      opencompletecustom: false,
+      number: 0,
+      custom: "",
       completecustom: {
         product_name: "",
         drink_image: "",
@@ -82,43 +118,55 @@ export default {
   },
   methods: {
     DrinkCustom: function () {
-      console.log(this.customchoices)
+      this.selectedchoices = []
       this.custombudget = this.fuga[0]
-      if (this.custombudget.custombudget < 50) {
-        this.openwarning = true
-      } else if (
-        50 <= this.custombudget.custombudget &&
-        this.custombudget.custombudget < 100
-      ) {
-        if (this.openwarning) {
-          this.openwarning = false
+      this.customstatus = this.custombudget.status.map((obj) => obj.status)
+      console.log(this.customstatus.length)
+      for (let i = 0; i <= this.customstatus.length; i++) {
+        if (this.customstatus[i] === false) {
+          this.custom = this.customchoices.filter((element) => {
+            return (
+              element.action === "add" &&
+              element.categoryid === i &&
+              (element.sweetlevel === this.selectedsweetness ||
+                element.sweetlevel === this.selectedsweetness + 1) &&
+              (element.richlevel === this.selectedrichness ||
+                element.richlevel === this.selectedrichness + 1) &&
+              (element.calorielevel === this.selectedcalorie ||
+                element.calorielevel === this.selectedcalorie + 1)
+            )
+          })
+          this.number = Math.floor(Math.random() * this.custom.length)
+          this.custom = this.custom[this.number]
+        } else if (this.customstatus[i] === true) {
+          this.custom = this.customchoices.filter((element) => {
+            return (
+              element.action === "change" &&
+              element.categoryid === i &&
+              (element.sweetlevel === this.selectedsweetness ||
+                element.sweetlevel === this.selectedsweetness + 1) &&
+              (element.richlevel === this.selectedrichness ||
+                element.richlevel === this.selectedrichness + 1) &&
+              (element.calorielevel === this.selectedcalorie ||
+                element.calorielevel === this.selectedcalorie + 1)
+            )
+          })
+          this.number = Math.floor(Math.random() * this.custom.length)
+          this.custom = this.custom[this.number]
+        } else {
+          this.custom = undefined
         }
-        this.selectedchoices = this.customchoices.filter((element) => {
-          return element.price === 50
-        })
-        // selectedsweetnessと同じsweetlevelのカスタムだけ抽出
-        this.selectedchoices = this.selectedchoices.filter((element) => {
-          return element.sweetlevel === this.selectedsweetness
-        })
-        console.log(this.this.selectedchoices)
-        const result = []
-        const customindex = Math.floor(
-          Math.random() * this.selectedchoices.length
-        )
-        this.decidedcustom = this.selectedchoices[customindex]
-        this.decidedcustomprice = this.decidedcustom.price
-        result[0] = this.decidedcustom
-        this.selectedcustom = result
-      } else {
-        if (this.openwarning) {
-          this.openwarning = false
-        }
-        this.selectedchoices = this.customchoices.filter((element) => {
-          return element.price === 50 || element.price === 100
-        })
-        // selectedsweetnessと同じsweetlevelのカスタムだけ抽出
-        this.selectedchoices = this.selectedchoices.filter((element) => {
-          return element.sweetlevel === this.selectedsweetness
+        console.log(this.custom)
+        this.selectedchoices.push(this.custom)
+      }
+      console.log(this.selectedchoices)
+      this.getchoices = this.selectedchoices.filter((element) => {
+        return !(element === undefined)
+      })
+      console.log(this.getchoices)
+      if (this.custombudget.custombudget < 55) {
+        this.selectedchoices = this.getchoices.filter((element) => {
+          return !(element.price === (55 || 110))
         })
         const result = []
         const countindex = Math.floor(Math.random() * this.count.length)
@@ -128,7 +176,32 @@ export default {
             Math.random() * this.selectedchoices.length
           )
           this.decidedcustom = this.selectedchoices[customindex]
-          this.decidedcustomprice += this.decidedcustom.price
+          result[i] = this.decidedcustom
+          this.selectedchoices.splice(customindex, 1)
+        }
+        this.selectedcustom = result
+        this.decidedcustomprice = 0
+      }
+      if (55 <= this.custombudget.custombudget) {
+        if (
+          55 <= this.custombudget.custombudget &&
+          this.custombudget.custombudget < 110
+        ) {
+          this.selectedchoices = this.getchoices.filter((element) => {
+            return element.price === (55 || 0)
+          })
+        }
+        console.log(this.selectedchoices)
+        const result = []
+        const countindex = Math.floor(Math.random() * this.count.length)
+        this.decidedcustomprice = 0
+        for (let i = 0; i <= countindex; i++) {
+          const customindex = Math.floor(Math.random() * this.getchoices.length)
+          console.log(this.customindex)
+          this.decidedcustom = this.getchoices[customindex]
+          console.log(this.decidedcustom)
+          this.getcustomprice = this.decidedcustom.price
+          this.decidedcustomprice += this.getcustomprice
           if (this.decidedcustomprice < this.custombudget.custombudget) {
             result[i] = this.decidedcustom
           } else {
@@ -137,6 +210,7 @@ export default {
           this.selectedchoices.splice(customindex, 1)
         }
         this.selectedcustom = result
+        console.log(this.selectedcustom)
       }
       this.completecustom.product_name = this.custombudget.product_name
       this.completecustom.drink_image = this.custombudget.drink_image
@@ -144,9 +218,13 @@ export default {
       this.completecustom.price =
         Number(this.custombudget.price) + this.decidedcustomprice
       this.completecustom.size = this.custombudget.size
-      if (this.opencustomimage === false) {
+      if (this.opencompletecustom === false) {
         this.opencustomimage = !this.opencustomimage
+        this.opencompletecustom = !this.opencompletecustom
       }
+      console.log(this.selectedcustom)
+      console.log(this.completecustom)
+      console.log(this.completecustom.product_name)
     },
   },
 }
