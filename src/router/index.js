@@ -1,15 +1,15 @@
-<<<<<<< HEAD
-import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import SamplepageView from "../views/SamplepageView.vue";
-import FavoriteView from "../views/FavoriteView.vue";
-=======
-import { createRouter, createWebHistory } from "vue-router
-import TriviaView from "../views/TriviaView.vue";
+// <<<<<<< HEAD
 import { createRouter, createWebHistory } from "vue-router"
 import HomeView from "../views/HomeView.vue"
+import SamplepageView from "../views/SamplepageView.vue"
+import FavoriteView from "../views/FavoriteView.vue"
+// =======
+// import { createRouter, createWebHistory } from "vue-router
+import TriviaView from "../views/TriviaView.vue"
+// import { createRouter, createWebHistory } from "vue-router"
+// import HomeView from "../views/HomeView.vue"
 import CustomView from "../views/CustomView.vue"
->>>>>>> origin/master
+// >>>>>>> origin/master
 
 const routes = [
   {
@@ -24,7 +24,6 @@ const routes = [
     component: TriviaView,
   },
   {
-<<<<<<< HEAD
     path: "/samplepage",
     name: "samplepage",
     component: SamplepageView,
@@ -34,14 +33,15 @@ const routes = [
     name: "favorite",
     component: FavoriteView,
   },
-];
-=======
+  {
     path: "/custom",
     name: "Custom",
     component: CustomView,
   },
 ]
->>>>>>> origin/master
+// <<<<<<< HEAD
+// =======
+// >>>>>>> origin/master
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
