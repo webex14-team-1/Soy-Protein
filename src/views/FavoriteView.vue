@@ -31,14 +31,14 @@ import {
   doc,
   deleteDoc,
   updateDoc,
-} from "firebase/firestore";
-import { db } from "../firebase";
+} from "firebase/firestore"
+import { db } from "../firebase"
 export default {
   data() {
     return {
       favorite_drinks: [],
       registerTime: [],
-    };
+    }
   },
   methods: {
     detail(index) {
@@ -48,12 +48,12 @@ export default {
         // console.log(this.favorite_drinks[index]);
         // console.log(index);
         // console.log(this.favorite_drinks);
-        this.favorite_drinks[index].changeDetail = "かくす";
-        this.favorite_drinks[index].onOff = true;
-        this.favorite_drinks[index].count++;
+        this.favorite_drinks[index].changeDetail = "かくす"
+        this.favorite_drinks[index].onOff = true
+        this.favorite_drinks[index].count++
         updateDoc(doc(db, "favorite", this.favorite_drinks[index].id), {
           count: this.favorite_drinks[index].count,
-        });
+        })
         // console.log(this.favorite_drinks[index].count);
         // setDoc(
         //   doc(db, "favorite", this.favorite_drinks[index].id),
@@ -63,48 +63,48 @@ export default {
         //   { merge: true }
         // );
       } else {
-        this.favorite_drinks[index].changeDetail = "詳細へ";
-        this.favorite_drinks[index].onOff = false;
+        this.favorite_drinks[index].changeDetail = "詳細へ"
+        this.favorite_drinks[index].onOff = false
       }
     },
     async deleteFavorite(id) {
-      await deleteDoc(doc(db, "favorite", id));
-      location.reload();
+      await deleteDoc(doc(db, "favorite", id))
+      location.reload()
     },
     // sort : viewRanking, viewNew, viewRegister
     viewRanking() {
       this.favorite_drinks.sort(function (a, b) {
-        console.log(a.count);
+        console.log(a.count)
         if (a.count < b.count) {
-          return 1;
+          return 1
         } else if (a.count > b.count) {
-          return -1;
+          return -1
         } else {
-          return 0;
+          return 0
         }
-      });
+      })
     },
     viewNew() {
       this.favorite_drinks.sort(function (a, b) {
         if (a.registerDate < b.registerDate) {
-          return 1;
+          return 1
         } else if (a.registerDate > b.registerDate) {
-          return -1;
+          return -1
         } else {
-          return 0;
+          return 0
         }
-      });
+      })
     },
     viewRegister() {
       this.favorite_drinks.sort(function (a, b) {
         if (a.registerDate > b.registerDate) {
-          return 1;
+          return 1
         } else if (a.registerDate < b.registerDate) {
-          return -1;
+          return -1
         } else {
-          return 0;
+          return 0
         }
-      });
+      })
     },
   },
   created() {
@@ -113,9 +113,9 @@ export default {
         this.favorite_drinks.push({
           id: doc.id,
           ...doc.data(),
-        });
-      });
-    });
+        })
+      })
+    })
     // for (let i = 0; i < this.favorite_drinks.length; i++) {
     //   this.favorite_drinks[i].count = 0;
     // }
@@ -127,7 +127,7 @@ export default {
     // console.log(this.favorite_drinks[0]);
     // console.log(this.favorite_drinks);
   },
-};
+}
 </script>
 
 <style>

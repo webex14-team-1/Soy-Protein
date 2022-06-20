@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { collection, addDoc, Timestamp } from "firebase/firestore"
 // import { getStorage, ref } from "firebase/storage";
-import { db } from "../firebase";
+import { db } from "../firebase"
 // const storage = getStorage();
 // const storageRef = ref(storage);
 // const imagesRef = ref(storage, "images");
@@ -88,13 +88,13 @@ export default {
           changeName: "お気に入り",
         },
       ],
-    };
+    }
   },
   methods: {
     registerFavorite(index) {
       if (this.drinks[index].changeName === "お気に入り") {
-        this.drinks[index].changeName = "登録済み";
-        this.drinks[index].switchDisabled = true;
+        this.drinks[index].changeName = "登録済み"
+        this.drinks[index].switchDisabled = true
       }
       /* firestoreに追加するコードを書く */
       addDoc(collection(db, "favorite"), {
@@ -105,10 +105,10 @@ export default {
         changeDetail: "詳細へ",
         onOff: false,
         registerDate: Timestamp.fromDate(new Date()),
-      });
+      })
     },
   },
-};
+}
 </script>
 
 <style>

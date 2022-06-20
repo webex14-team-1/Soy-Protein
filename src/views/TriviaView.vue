@@ -146,39 +146,39 @@ export default {
           ],
         },
       },
-    };
+    }
   },
 
   methods: {
     choices(index) {
-      this.feedback = this.quizlist.quiz1.choices[index].feedback;
+      this.feedback = this.quizlist.quiz1.choices[index].feedback
       if (this.quizlist.quiz1.choices.isCorrect === true) {
-        this.imagepath = require("@/views/images/cafe.jpg");
+        this.imagepath = require("@/views/images/cafe.jpg")
       }
       if (this.openfeedback === false) {
-        this.openfeedback = true;
+        this.openfeedback = true
       }
     },
     choices2(index) {
-      this.feedback = this.quizlist.quiz2.choices[index].feedback;
+      this.feedback = this.quizlist.quiz2.choices[index].feedback
       if (this.quizlist.quiz2.choices.isCorrect === true) {
-        this.imagepath = require("@/views/images/cafe.jpg");
+        this.imagepath = require("@/views/images/cafe.jpg")
       }
       if (this.openfeedback === false) {
-        this.openfeedback = true;
+        this.openfeedback = true
       }
     },
     choices3(index) {
-      this.feedback = this.quizlist.quiz3.choices[index].feedback;
+      this.feedback = this.quizlist.quiz3.choices[index].feedback
       if (this.quizlist.quiz3.choices.isCorrect === true) {
-        this.imagepath = require("@/views/images/cafe.jpg");
+        this.imagepath = require("@/views/images/cafe.jpg")
       }
       if (this.openfeedback === false) {
-        this.openfeedback = true;
+        this.openfeedback = true
       }
     },
   },
-};
+}
 </script>
 
 <style>
