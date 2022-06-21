@@ -119,9 +119,9 @@ export default {
   methods: {
     DrinkCustom: function () {
       this.selectedchoices = []
+      this.getchoices = ""
       this.custombudget = this.fuga[0]
       this.customstatus = this.custombudget.status.map((obj) => obj.status)
-      console.log(this.customstatus.length)
       for (let i = 0; i <= this.customstatus.length; i++) {
         if (this.customstatus[i] === false) {
           this.custom = this.customchoices.filter((element) => {
@@ -156,28 +156,24 @@ export default {
         } else {
           this.custom = undefined
         }
-        console.log(this.custom)
         this.selectedchoices.push(this.custom)
       }
-      console.log(this.selectedchoices)
       this.getchoices = this.selectedchoices.filter((element) => {
         return !(element === undefined)
       })
-      console.log(this.getchoices)
       if (this.custombudget.custombudget < 55) {
-        this.selectedchoices = this.getchoices.filter((element) => {
+        this.getchoices = this.getchoices.filter((element) => {
           return !(element.price === (55 || 110))
         })
         const result = []
-        const countindex = Math.floor(Math.random() * this.count.length)
+        const countindex = Math.floor(Math.random() * this.getchoices.length)
         this.decidedcustomprice = 0
-        for (let i = 0; i <= countindex; i++) {
-          const customindex = Math.floor(
-            Math.random() * this.selectedchoices.length
-          )
-          this.decidedcustom = this.selectedchoices[customindex]
+
+        for (let i = 0; i < countindex; i++) {
+          let customindex = Math.floor(Math.random() * this.getchoices.length)
+          this.decidedcustom = this.getchoices[customindex]
           result[i] = this.decidedcustom
-          this.selectedchoices.splice(customindex, 1)
+          this.getchoices.splice(customindex, 1)
         }
         this.selectedcustom = result
         this.decidedcustomprice = 0
@@ -187,19 +183,16 @@ export default {
           55 <= this.custombudget.custombudget &&
           this.custombudget.custombudget < 110
         ) {
-          this.selectedchoices = this.getchoices.filter((element) => {
+          this.getchoices = this.getchoices.filter((element) => {
             return element.price === (55 || 0)
           })
         }
-        console.log(this.selectedchoices)
         const result = []
-        const countindex = Math.floor(Math.random() * this.count.length)
+        const countindex = Math.floor(Math.random() * this.getchoices.length)
         this.decidedcustomprice = 0
-        for (let i = 0; i <= countindex; i++) {
-          const customindex = Math.floor(Math.random() * this.getchoices.length)
-          console.log(this.customindex)
+        for (let i = 0; i < countindex; i++) {
+          let customindex = Math.floor(Math.random() * this.getchoices.length)
           this.decidedcustom = this.getchoices[customindex]
-          console.log(this.decidedcustom)
           this.getcustomprice = this.decidedcustom.price
           this.decidedcustomprice += this.getcustomprice
           if (this.decidedcustomprice < this.custombudget.custombudget) {
@@ -207,10 +200,9 @@ export default {
           } else {
             this.decidedcustomprice -= this.decidedcustom.price
           }
-          this.selectedchoices.splice(customindex, 1)
+          this.getchoices.splice(customindex, 1)
         }
         this.selectedcustom = result
-        console.log(this.selectedcustom)
       }
       this.completecustom.product_name = this.custombudget.product_name
       this.completecustom.drink_image = this.custombudget.drink_image
@@ -222,9 +214,6 @@ export default {
         this.opencustomimage = !this.opencustomimage
         this.opencompletecustom = !this.opencompletecustom
       }
-      console.log(this.selectedcustom)
-      console.log(this.completecustom)
-      console.log(this.completecustom.product_name)
     },
   },
 }
