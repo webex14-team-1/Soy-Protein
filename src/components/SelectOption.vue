@@ -76,11 +76,16 @@
         />
       </div>
     </div>
+    <div>
+      <button v-on:click="registerFavorite">お気に入り登録</button>
+    </div>
   </div>
 </template>
 
 <script>
 import customchoices from "../assets/custom.json"
+import { collection, addDoc, Timestamp } from "firebase/firestore"
+import { db } from "../firebase"
 export default {
   props: ["fuga"],
   data() {
@@ -217,6 +222,25 @@ export default {
         this.opencompletecustom = !this.opencompletecustom
       }
       this.$emit("get-complete-custom", this.completecustom)
+      console.log(this.completecustom)
+      console.log(this.completecustom.drink_image)
+    },
+    async registerFavorite() {
+      if (this.completecustom.changeName === "お気に入り") {
+        this.completecustom.changeName = "登録済み"
+        this.completecustom.switchDisabled = true
+      }
+      /* ↓firestoreに追加するコード↓ */
+      await addDoc(collection(db, "favorite"), {
+        drink: this.completecustom.product_name,
+        price: this.completecustom.price,
+        count: this.completecustom.count,
+        switchDisabled: false,
+        changeDetail: "詳細へ",
+        onOff: false,
+        image_path: this.completecustom.drink_image,
+        registerDate: Timestamp.fromDate(new Date()),
+      })
     },
   },
 }

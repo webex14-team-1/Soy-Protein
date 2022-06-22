@@ -13,7 +13,7 @@
           <!-- 詳細・かくす切り替え -->
           <!-- （修正）要素全てに対して適用されてしまっている -->
           <img
-            v-bind:src="require(`${drink.image_path}`)"
+            v-bind:src="require(`@/assets/custom.img/${drink.image_path}.png`)"
             class="drink_image"
           />
           <!-- <h4>{{ drink.image_path }}</h4> -->
@@ -52,30 +52,30 @@ export default {
     }
   },
   methods: {
-    detail(index) {
-      if (this.favorite_drinks[index].changeDetail === "詳細へ") {
+    detail() {
+      if (this.favorite_drinks.changeDetail === "詳細へ") {
         // console.log(this.favorite_drinks[0].count);
         // console.log(this.favorite_drinks);
-        // console.log(this.favorite_drinks[index]);
+        // console.log(this.favorite_drinks);
         // console.log(index);
         // console.log(this.favorite_drinks);
-        this.favorite_drinks[index].changeDetail = "かくす"
-        this.favorite_drinks[index].onOff = true
-        this.favorite_drinks[index].count++
-        updateDoc(doc(db, "favorite", this.favorite_drinks[index].id), {
-          count: this.favorite_drinks[index].count,
+        this.favorite_drinks.changeDetail = "かくす"
+        this.favorite_drinks.onOff = true
+        this.favorite_drinks.count++
+        updateDoc(doc(db, "favorite", this.favorite_drinks.id), {
+          count: this.favorite_drinks.count,
         })
-        // console.log(this.favorite_drinks[index].count);
+        // console.log(this.favorite_drinks.count);
         // setDoc(
-        //   doc(db, "favorite", this.favorite_drinks[index].id),
+        //   doc(db, "favorite", this.favorite_drinks.id),
         //   {
-        //     count: this.favorite_drinks[index].count,
+        //     count: this.favorite_drinks.count,
         //   },
         //   { merge: true }
         // );
       } else {
-        this.favorite_drinks[index].changeDetail = "詳細へ"
-        this.favorite_drinks[index].onOff = false
+        this.favorite_drinks.changeDetail = "詳細へ"
+        this.favorite_drinks.onOff = false
       }
     },
     async deleteFavorite(id) {
