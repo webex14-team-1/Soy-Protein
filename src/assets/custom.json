@@ -1,0 +1,727 @@
+[
+  {
+    "customname": "シロップ増量",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 3,
+    "price": 0,
+    "customimage": "syrup",
+    "action": "change",
+    "categoryid": 0
+  },
+  {
+    "customname": "バニラシロップ追加",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 1,
+    "price": 55,
+    "customimage": "syrup",
+    "action": "add",
+    "categoryid": 0
+  },
+  {
+    "customname": "バニラシロップ追加&増量",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 2,
+    "price": 55,
+    "customimage": "syrup",
+    "action": "add",
+    "categoryid": 0
+  },
+
+  {
+    "customname": "クラシックシロップ追加",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 1,
+    "price": 55,
+    "customimage": "syrup",
+    "action": "add",
+    "categoryid": 0
+  },
+  {
+    "customname": "クラシックシロップ追加&増量",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 3,
+    "price": 55,
+    "customimage": "syrup",
+    "action": "add",
+    "categoryid": 0
+  },
+  {
+    "customname": "クラシックシロップに変更",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 1,
+    "price": 0,
+    "customimage": "syrup",
+    "action": "change",
+    "categoryid": 0
+  },
+  {
+    "customname": "クラシックシロップに変更&増量",
+    "sweetlevel": 3,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "syrup",
+    "action": "change",
+    "categoryid": 0
+  },
+  {
+    "customname": "キャラメルシロップ追加",
+    "sweetlevel": 2,
+    "richlevel": 3,
+    "calorielevel": 2,
+    "price": 55,
+    "customimage": "syrup",
+    "action": "add",
+    "categoryid": 0
+  },
+  {
+    "customname": "キャラメルシロップ追加&増量",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 3,
+    "price": 55,
+    "customimage": "syrup",
+    "action": "add",
+    "categoryid": 0
+  },
+  {
+    "customname": "キャラメルシロップに変更",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "syrup",
+    "action": "change",
+    "categoryid": 0
+  },
+  {
+    "customname": "キャラメルシロップに変更&増量",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 3,
+    "price": 0,
+    "customimage": "syrup",
+    "action": "change",
+    "categoryid": 0
+  },
+
+  {
+    "customname": "モカシロップ追加",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 3,
+    "price": 55,
+    "customimage": "syrup",
+    "action": "add",
+    "categoryid": 0
+  },
+  {
+    "customname": "モカシロップ追加&増量",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 3,
+    "price": 55,
+    "customimage": "syrup",
+    "action": "add",
+    "categoryid": 0
+  },
+  {
+    "customname": "モカシロップに変更",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 3,
+    "price": 0,
+    "customimage": "syrup",
+    "action": "change",
+    "categoryid": 0
+  },
+  {
+    "customname": "モカシロップに変更&増量",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 3,
+    "price": 0,
+    "customimage": "syrup",
+    "action": "change",
+    "categoryid": 0
+  },
+  {
+    "customname": "ホワイトモカシロップ追加",
+    "sweetlevel": 3,
+    "richlevel": 2,
+    "calorielevel": 3,
+    "price": 55,
+    "customimage": "syrup",
+    "action": "add",
+    "categoryid": 0
+  },
+  {
+    "customname": "ホワイトシロップ追加&増量",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 3,
+    "price": 55,
+    "customimage": "syrup",
+    "action": "add",
+    "categoryid": 0
+  },
+  {
+    "customname": "ホワイトモカシロップに変更",
+    "sweetlevel": 3,
+    "richlevel": 2,
+    "calorielevel": 3,
+    "price": 0,
+    "customimage": "syrup",
+    "action": "change",
+    "categoryid": 0
+  },
+  {
+    "customname": "ホワイトモカシロップに変更&増量",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 3,
+    "price": 0,
+    "customimage": "syrup",
+    "action": "change",
+    "categoryid": 0
+  },
+  {
+    "customname": "アーモンドトフィーシロップ追加",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 55,
+    "customimage": "syrup",
+    "action": "add",
+    "categoryid": 0
+  },
+  {
+    "customname": "アーモンドシロップ追加&増量",
+    "sweetlevel": 2,
+    "richlevel": 3,
+    "calorielevel": 3,
+    "price": 55,
+    "customimage": "syrup",
+    "action": "add",
+    "categoryid": 0
+  },
+  {
+    "customname": "アーモンドトフィーシロップに変更",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "syrup",
+    "action": "change",
+    "categoryid": 0
+  },
+  {
+    "customname": "アーモンドトフィーシロップに変更&増量",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 3,
+    "price": 0,
+    "customimage": "syrup",
+    "action": "change",
+    "categoryid": 0
+  },
+  {
+    "customname": "チャイシロップ追加",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 3,
+    "price": 55,
+    "customimage": "syrup",
+    "action": "add",
+    "categoryid": 0
+  },
+  {
+    "customname": "ホイップクリーム追加",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 55,
+    "customimage": "cream",
+    "action": "add",
+    "categoryid": 1
+  },
+
+  {
+    "customname": "ホイップクリーム増量",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "cream",
+    "action": "change",
+    "categoryid": 1
+  },
+  {
+    "customname": "チョコレートチップ追加",
+    "sweetlevel": 1,
+    "richlevel": 2,
+    "calorielevel": 1,
+    "price": 55,
+    "customimage": "chocolate",
+    "action": "add",
+    "categoryid": 2
+  },
+  {
+    "customname": "チョコレートチップ追加&増量",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 3,
+    "price": 55,
+    "customimage": "chocolate",
+    "action": "add",
+    "categoryid": 2
+  },
+  {
+    "customname": "チョコレートチップ増量",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "chocolate",
+    "action": "change",
+    "categoryid": 2
+  },
+  {
+    "customname": "エスプレッソショット追加",
+    "sweetlevel": 1,
+    "richlevel": 2,
+    "calorielevel": 1,
+    "price": 55,
+    "customimage": "shot",
+    "action": "add",
+    "categoryid": 3
+  },
+  {
+    "customname": "エスプレッソショット追加&増量",
+    "sweetlevel": 1,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 110,
+    "customimage": "shot",
+    "action": "add",
+    "categoryid": 3
+  },
+  {
+    "customname": "エスプレッソショット増量",
+    "sweetlevel": 1,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 55,
+    "customimage": "shot",
+    "action": "change",
+    "categoryid": 3
+  },
+  {
+    "customname": "リストレットショット追加",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 55,
+    "customimage": "shot",
+    "action": "add",
+    "categoryid": 3
+  },
+  {
+    "customname": "リストレットショットに変更",
+    "sweetlevel": 2,
+    "richlevel": 3,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "shot",
+    "action": "change",
+    "categoryid": 3
+  },
+  {
+    "customname": "エスプレッソショット減量",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "shot",
+    "action": "change",
+    "categoryid": 3
+  },
+  {
+    "customname": "コーヒーロースト追加",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 55,
+    "customimage": "shot",
+    "action": "add",
+    "categoryid": 4
+  },
+  {
+    "customname": "コーヒーロースト追加&増量",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 3,
+    "price": 110,
+    "customimage": "shot",
+    "action": "add",
+    "categoryid": 4
+  },
+  {
+    "customname": "コーヒーロースト増量",
+    "sweetlevel": 3,
+    "richlevel": 1,
+    "calorielevel": 1,
+    "price": 55,
+    "customimage": "shot",
+    "action": "add",
+    "categoryid": 4
+  },
+
+  {
+    "customname": "ムースフォームミルク追加",
+    "sweetlevel": 2,
+    "richlevel": 3,
+    "calorielevel": 2,
+    "price": 55,
+    "customimage": "mousse",
+    "action": "add",
+    "categoryid": 5
+  },
+  {
+    "customname": "ムースフォームミルク増量",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "mousse",
+    "action": "change",
+    "categoryid": 5
+  },
+  {
+    "customname": "シトラス果肉追加",
+    "sweetlevel": 3,
+    "richlevel": 1,
+    "calorielevel": 2,
+    "price": 110,
+    "customimage": "citrus",
+    "action": "add",
+    "categoryid": 6
+  },
+  {
+    "customname": "シトラス果肉増量",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 1,
+    "price": 110,
+    "customimage": "citrus",
+    "action": "change",
+    "categoryid": 6
+  },
+  {
+    "customname": "茶葉を追加",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 100,
+    "customimage": "teabag",
+    "action": "change",
+    "categoryid": 7
+  },
+  {
+    "customname": "イングリッシュブレックファストティーに変更",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "teabag",
+    "action": "change",
+    "categoryid": 7
+  },
+  {
+    "customname": "アールグレイティーに変更",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "teabag",
+    "action": "change",
+    "categoryid": 7
+  },
+  {
+    "customname": "ユースベリーティーに変更",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 1,
+    "price": 0,
+    "customimage": "teabag",
+    "action": "change",
+    "categoryid": 7
+  },
+  {
+    "customname": "カモミールティーに変更",
+    "sweetlevel": 2,
+    "richlevel": 3,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "teabag",
+    "action": "change",
+    "categoryid": 7
+  },
+  {
+    "customname": "ハイビスカスティーに変更",
+    "sweetlevel": 2,
+    "richlevel": 1,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "teabag",
+    "action": "change",
+    "categoryid": 7
+  },
+  {
+    "customname": "ミントシトラスティーに変更",
+    "sweetlevel": 1,
+    "richlevel": 1,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "teabag",
+    "action": "change",
+    "categoryid": 7
+  },
+  {
+    "customname": "ほうじ茶に変更",
+    "sweetlevel": 1,
+    "richlevel": 1,
+    "calorielevel": 1,
+    "price": 0,
+    "customimage": "teabag",
+    "action": "change",
+    "categoryid": 7
+  },
+  {
+    "customname": "シナモンパウダー追加 ",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "powder",
+    "action": "add",
+    "categoryid": 8
+  },
+  {
+    "customname": "シナモンパウダー追加&増量 ",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 3,
+    "price": 0,
+    "customimage": "powder",
+    "action": "add",
+    "categoryid": 8
+  },
+  {
+    "customname": "パウダー増量 ",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 3,
+    "price": 0,
+    "customimage": "",
+    "action": "powder",
+    "categoryid": 8
+  },
+  {
+    "customname": "パウダー減量 ",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "",
+    "action": "powder",
+    "categoryid": 8
+  },
+  {
+    "customname": "はちみつ追加",
+    "sweetlevel": 3,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "honey",
+    "action": "add",
+    "categoryid": 9
+  },
+  {
+    "customname": " はちみつ追加&増量",
+    "sweetlevel": 2,
+    "richlevel": 3,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "honey",
+    "action": "add",
+    "categoryid": 9
+  },
+  {
+    "customname": "はちみつ増量",
+    "sweetlevel": 3,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "honey",
+    "action": "change",
+    "categoryid": 9
+  },
+  {
+    "customname": "はちみつ増量",
+    "sweetlevel": 2,
+    "richlevel": 3,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "honey",
+    "action": "change",
+    "categoryid": 9
+  },
+
+  {
+    "customname": "チョコレートソース追加 ",
+    "sweetlevel": 3,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "sauce",
+    "action": "add",
+    "categoryid": 10
+  },
+  {
+    "customname": "チョコレートソース追加&増量",
+    "sweetlevel": 3,
+    "richlevel": 2,
+    "calorielevel": 3,
+    "price": 0,
+    "customimage": "sauce",
+    "action": "add",
+    "categoryid": 10
+  },
+  {
+    "customname": "チョコレートソースに変更",
+    "sweetlevel": 3,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "sauce",
+    "action": "change",
+    "categoryid": 10
+  },
+  {
+    "customname": "チョコレートソースに変更&増量",
+    "sweetlevel": 3,
+    "richlevel": 2,
+    "calorielevel": 3,
+    "price": 0,
+    "customimage": "sauce",
+    "action": "change",
+    "categoryid": 10
+  },
+  {
+    "customname": "キャラメルソース追加",
+    "sweetlevel": 2,
+    "richlevel": 3,
+    "calorielevel": 3,
+    "price": 0,
+    "customimage": "sauce",
+    "action": "add",
+    "categoryid": 10
+  },
+  {
+    "customname": "キャラメルソース追加&増量",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 3,
+    "price": 0,
+    "customimage": "sauce",
+    "action": "add",
+    "categoryid": 10
+  },
+  {
+    "customname": "キャラメルソースに変更",
+    "sweetlevel": 2,
+    "richlevel": 3,
+    "calorielevel": 3,
+    "price": 0,
+    "customimage": "sauce",
+    "action": "change",
+    "categoryid": 10
+  },
+  {
+    "customname": "キャラメルソースに変更&増量",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 3,
+    "price": 0,
+    "customimage": "sauce",
+    "action": "change",
+    "categoryid": 10
+  },
+  {
+    "customname": "低脂肪乳に変更",
+    "sweetlevel": 1,
+    "richlevel": 1,
+    "calorielevel": 2,
+    "price": 0,
+    "customimage": "milk",
+    "action": "change",
+    "categoryid": 11
+  },
+  {
+    "customname": "無脂肪乳に変更",
+    "sweetlevel": 1,
+    "richlevel": 1,
+    "calorielevel": 1,
+    "price": 0,
+    "customimage": "milk",
+    "action": "change",
+    "categoryid": 11
+  },
+  {
+    "customname": "豆乳に変更",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 2,
+    "price": 55,
+    "customimage": "milk",
+    "action": "change",
+    "categoryid": 11
+  },
+  {
+    "customname": "アーモンドミルクに変更",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 1,
+    "price": 55,
+    "customimage": "milk",
+    "action": "change",
+    "categoryid": 11
+  },
+  {
+    "customname": "オーツミルクに変更",
+    "sweetlevel": 2,
+    "richlevel": 2,
+    "calorielevel": 2,
+    "price": 55,
+    "customimage": "milk",
+    "action": "change",
+    "categoryid": 11
+  },
+  {
+    "customname": "ブレベミルクに変更",
+    "sweetlevel": 3,
+    "richlevel": 3,
+    "calorielevel": 3,
+    "price": 55,
+    "customimage": "milk",
+    "action": "change",
+    "categoryid": 11
+  }
+]

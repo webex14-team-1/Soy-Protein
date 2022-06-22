@@ -1,7 +1,9 @@
 <template>
-  <h1>こんにちは</h1>
-  <StarBucksAPI @get-selected-drink="adddrink" />
-  <SelectOption :fuga="newdrink" />
+  <div class="Customview">
+    <h1>スターバックスカスタム</h1>
+    <StarBucksAPI @get-selected-drink="adddrink" />
+    <SelectOption :fuga="newdrink" @get-complete-custom="addfavorite" />
+  </div>
 </template>
 <script>
 import StarBucksAPI from "@/components/StarBucksAPI.vue"
@@ -15,6 +17,7 @@ export default {
   data() {
     return {
       newdrink: [],
+      perfectdrink: [],
     }
   },
   methods: {
@@ -23,6 +26,12 @@ export default {
       const drink = value
       this.newdrink.unshift(drink)
       console.log(this.newdrink)
+    },
+    addfavorite(value) {
+      this.perfectdrink = []
+      const drink = value
+      this.perfectdrink.unshift(drink)
+      console.log(this.perfectdrink)
     },
   },
 }
