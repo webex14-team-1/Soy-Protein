@@ -167,7 +167,7 @@ export default {
           return !(element.price === (55 || 110))
         })
         const result = []
-        let countindex = Math.floor(Math.random() * this.getchoices.length)
+        let countindex = Math.floor(Math.random() * this.count.length)
         this.decidedcustomprice = 0
 
         for (let i = 0; i <= countindex; i++) {
@@ -189,7 +189,7 @@ export default {
           })
         }
         const result = []
-        const countindex = Math.floor(Math.random() * this.getchoices.length)
+        const countindex = Math.floor(Math.random() * this.count.length)
         this.decidedcustomprice = 0
         for (let i = 0; i <= countindex; i++) {
           const customindex = Math.floor(Math.random() * this.getchoices.length)
@@ -205,6 +205,7 @@ export default {
         }
         this.selectedcustom = result
       }
+      console.log(this.selectedcustom)
       this.completecustom.product_name = this.custombudget.product_name
       this.completecustom.drink_image = this.custombudget.drink_image
       this.completecustom.custom = this.selectedcustom
@@ -215,6 +216,7 @@ export default {
         this.opencustomimage = !this.opencustomimage
         this.opencompletecustom = !this.opencompletecustom
       }
+      this.$emit("get-complete-custom", this.completecustom)
     },
   },
 }
