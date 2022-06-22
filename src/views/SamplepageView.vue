@@ -38,72 +38,84 @@ export default {
           price: 500,
           count: 0,
           changeName: "お気に入り",
+          path: "./images/latte.jpg",
         },
         {
           drink: "ドリンク2",
           price: 600,
           count: 0,
           changeName: "お気に入り",
+          path: "",
         },
         {
           drink: "ドリンク3",
           price: 700,
           count: 0,
           changeName: "お気に入り",
+          path: "",
         },
         {
           drink: "ドリンク4",
           price: 550,
           count: 0,
           changeName: "お気に入り",
+          path: "",
         },
         {
           drink: "ドリンク5",
           price: 650,
           count: 0,
           changeName: "お気に入り",
+          path: "",
         },
         {
           drink: "ドリンク6",
           price: 300,
           count: 0,
           changeName: "お気に入り",
+          path: "",
         },
         {
           drink: "ドリンク7",
           price: 580,
           count: 0,
           changeName: "お気に入り",
+          path: "",
         },
         {
           drink: "ドリンク8",
           price: 800,
           count: 0,
           changeName: "お気に入り",
+          path: "",
         },
         {
           drink: "ドリンク9",
           price: 900,
           count: 0,
           changeName: "お気に入り",
+          path: "",
         },
       ],
     }
   },
   methods: {
-    registerFavorite(index) {
+    // お気に入りボタンを押すと、registerFavorite関数が動く
+    // ボタンが「お気に入り」→「登録」に変わる
+    async registerFavorite(index) {
       if (this.drinks[index].changeName === "お気に入り") {
         this.drinks[index].changeName = "登録済み"
         this.drinks[index].switchDisabled = true
       }
-      /* firestoreに追加するコードを書く */
-      addDoc(collection(db, "favorite"), {
+      /* ↓firestoreに追加するコード↓ */
+      await addDoc(collection(db, "favorite"), {
         drink: this.drinks[index].drink,
         price: this.drinks[index].price,
         count: this.drinks[index].count,
         switchDisabled: false,
         changeDetail: "詳細へ",
         onOff: false,
+        image_path: this.drinks[index].path,
         registerDate: Timestamp.fromDate(new Date()),
       })
     },

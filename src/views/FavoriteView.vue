@@ -10,10 +10,21 @@
       <div v-for="(drink, index) in favorite_drinks" :key="drink.id">
         <div class="com8">
           <h4>{{ drink.drink }}</h4>
-          <!-- 詳細かくす切り替え -->
+          <!-- 詳細・かくす切り替え -->
           <!-- （修正）要素全てに対して適用されてしまっている -->
+          <img
+            v-bind:src="require(`${drink.image_path}`)"
+            class="drink_image"
+          />
+          <!-- <h4>{{ drink.image_path }}</h4> -->
           <button v-on:click="detail(index)">{{ drink.changeDetail }}</button>
-          <p v-if="drink.onOff">{{ drink.price }}</p>
+          <div v-if="drink.onOff" class="drink_detail">
+            <p>{{ drink.price }}</p>
+            <!-- <img
+              v-bind:src="require(`${drink.image_path}`)"
+              class="drink_image"
+            /> -->
+          </div>
           <button v-on:click="deleteFavorite(drink.id)">お気に入り削除</button>
         </div>
       </div>
@@ -107,6 +118,11 @@ export default {
       })
     },
   },
+  // computed(){
+  //   imgsrc(index){
+  //     return require(favorite_drinks[index].path)
+  //   }
+  // },
   created() {
     getDocs(collection(db, "favorite")).then((snapshot) => {
       snapshot.forEach((doc) => {
@@ -148,11 +164,21 @@ export default {
 }
 
 .com8 {
-  height: 250px;
-  width: 200px;
+  height: 400px;
+  width: 400px;
   margin: 50px;
   background-color: green;
   color: white;
+}
+
+/* .drink_detail {
+  height: 200px;
+  width: 200px;
+} */
+
+.drink_image {
+  height: 100px;
+  width: 100px;
 }
 
 .footer {

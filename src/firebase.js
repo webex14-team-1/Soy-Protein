@@ -1,7 +1,7 @@
 // 必要な関数を import
 import { initializeApp } from "firebase/app"
 import { getFirestore } from "firebase/firestore"
-import { getStorage } from "firebase/storage"
+// import { getStorage } from "firebase/storage"
 
 const firebaseConfig = {
   apiKey: "AIzaSyADWPkZA8nW9GRDnGwjwXpTib6GS3p1lrQ",
@@ -18,4 +18,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 // Firestoreを読み込み、db(databaseの略)として export
 export const db = getFirestore(app)
-export const storage = getStorage(app)
+// export const storage = getStorage(app)
