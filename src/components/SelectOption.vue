@@ -118,6 +118,7 @@ export default {
   },
   methods: {
     DrinkCustom: function () {
+      this.opencompletecustom === false
       this.selectedchoices = []
       this.getchoices = ""
       this.custombudget = this.fuga[0]
@@ -166,10 +167,10 @@ export default {
           return !(element.price === (55 || 110))
         })
         const result = []
-        const countindex = Math.floor(Math.random() * this.getchoices.length)
+        let countindex = Math.floor(Math.random() * this.getchoices.length)
         this.decidedcustomprice = 0
 
-        for (let i = 0; i < countindex; i++) {
+        for (let i = 0; i <= countindex; i++) {
           let customindex = Math.floor(Math.random() * this.getchoices.length)
           this.decidedcustom = this.getchoices[customindex]
           result[i] = this.decidedcustom
@@ -190,8 +191,8 @@ export default {
         const result = []
         const countindex = Math.floor(Math.random() * this.getchoices.length)
         this.decidedcustomprice = 0
-        for (let i = 0; i < countindex; i++) {
-          let customindex = Math.floor(Math.random() * this.getchoices.length)
+        for (let i = 0; i <= countindex; i++) {
+          const customindex = Math.floor(Math.random() * this.getchoices.length)
           this.decidedcustom = this.getchoices[customindex]
           this.getcustomprice = this.decidedcustom.price
           this.decidedcustomprice += this.getcustomprice
