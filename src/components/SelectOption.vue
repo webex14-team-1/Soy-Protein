@@ -213,6 +213,7 @@ export default {
       console.log(this.selectedcustom)
       this.completecustom.product_name = this.custombudget.product_name
       this.completecustom.drink_image = this.custombudget.drink_image
+      this.completecustom.count = this.custombudget.count
       this.completecustom.custom = this.selectedcustom
       this.completecustom.price =
         Number(this.custombudget.price) + this.decidedcustomprice

@@ -19,7 +19,6 @@
     <p>footer</p>
   </div>
 </template>
-
 <script>
 import { collection, addDoc, Timestamp } from "firebase/firestore"
 // import { getStorage, ref } from "firebase/storage";

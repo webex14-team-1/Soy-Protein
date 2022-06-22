@@ -12,8 +12,9 @@
           <h4>{{ drink.drink }}</h4>
           <!-- 詳細・かくす切り替え -->
           <!-- （修正）要素全てに対して適用されてしまっている -->
+
           <img
-            v-bind:src="require(`@/assets/custom.img/${drink.image_path}.png`)"
+            v-bind:src="require(`@/assets/${drink.image_path}.png`)"
             class="drink_image"
           />
           <!-- <h4>{{ drink.image_path }}</h4> -->
