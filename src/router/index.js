@@ -1,7 +1,7 @@
 // <<<<<<< HEAD
 import { createRouter, createWebHistory } from "vue-router"
 import HomeView from "../views/HomeView.vue"
-import SamplepageView from "../views/SamplepageView.vue"
+// import SamplepageView from "../views/SamplepageView.vue"
 import FavoriteView from "../views/FavoriteView.vue"
 // =======
 // import { createRouter, createWebHistory } from "vue-router
@@ -23,11 +23,11 @@ const routes = [
     name: "trivia",
     component: TriviaView,
   },
-  {
-    path: "/samplepage",
-    name: "samplepage",
-    component: SamplepageView,
-  },
+  // {
+  //   path: "/samplepage",
+  //   name: "samplepage",
+  //   component: SamplepageView,
+  // },
   {
     path: "/favorite",
     name: "favorite",
@@ -43,9 +43,20 @@ const routes = [
 // =======
 // >>>>>>> origin/master
 
+// const router = createRouter({
+//   history: createWebHistory(process.env.BASE_URL),
+//   routes,
+// })
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  scrollBehavior(to) {
+    if (to.hash) {
+      return { el: to.hash }
+    } else {
+      return { top: 0 }
+    }
+  },
 })
 
 export default router

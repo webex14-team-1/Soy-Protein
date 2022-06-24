@@ -1,8 +1,14 @@
 <template>
   <div class="SlectOption">
-    <div>
-      <div>甘さのレベルを教えてください</div>
-      <select v-model.number="selectedsweetness">
+    <div class="startfeel">ここからはあなたの気分や好みを伺います</div>
+    <div class="sweet-container">
+      <div class="explain-sweet">
+        <div>
+          <h1>Step4</h1>
+          <h2>甘さはどれくらいがいいですか？ (1:甘さ少なめ 2:普通 3:甘い)</h2>
+        </div>
+      </div>
+      <select v-model.number="selectedsweetness" class="selectchoice">
         <option disabled value="">Please Select</option>
         <option
           v-for="(sweet, index) in Sweetness"
@@ -13,11 +19,16 @@
           <div>{{ sweet }}</div>
         </option>
       </select>
-      <div>選択項目: {{ selectedsweetness }}</div>
+      <div class="selectedstatus">選択項目: {{ selectedsweetness }}</div>
     </div>
-    <div>
-      <div>濃厚さのレベルを教えてください</div>
-      <select v-model.number="selectedrichness">
+    <div class="rich-container">
+      <div class="explain-light">
+        <div>
+          <h1>Step5</h1>
+          <h2>濃厚さはどれくらいがいいですか？(1:あっさり 2:普通 3:濃厚)</h2>
+        </div>
+      </div>
+      <select v-model.number="selectedrichness" class="selectchoice">
         <option disabled value="">Please Select</option>
         <option
           v-for="(rich, index) in Richness"
@@ -28,11 +39,16 @@
           <div>{{ rich }}</div>
         </option>
       </select>
-      <div>選択項目: {{ selectedrichness }}</div>
+      <div class="selectedstatus">選択項目: {{ selectedrichness }}</div>
     </div>
-    <div>
-      <div>カロリーのレベルを教えてください</div>
-      <select v-model.number="selectedcalorie">
+    <div class="claroe-container">
+      <div class="explain-calorie">
+        <div>
+          <h1>Step6</h1>
+          <h2>カロリーはどれくらいがいいですか？(1:低い 2:普通 3:高い)</h2>
+        </div>
+      </div>
+      <select v-model.number="selectedcalorie" class="selectchoice">
         <option disabled value="">Please Select</option>
         <option
           v-for="(calorie, index) in Calories"
@@ -43,45 +59,183 @@
           <div>{{ calorie }}</div>
         </option>
       </select>
-      <div>選択項目: {{ selectedcalorie }}</div>
+      <div class="selectedstatus">選択項目: {{ selectedcalorie }}</div>
     </div>
-    <div>
-      <button v-on:click="DrinkCustom">決定</button>
+    <div class="decided-feel">
+      <div class="explain-decide">
+        <div class="decidebutton">
+          <h1>Step7</h1>
+          <h2>決定ボタンを推してしてください。</h2>
+        </div>
+      </div>
+      <div class="send-perfect">
+        <button
+          v-on:click="DrinkCustom"
+          class="button btn btn--orange btn--radius"
+        >
+          決定
+        </button>
+      </div>
     </div>
-    <div v-if="opencompletecustom">
-      <div>おすすめのカスタムは</div>
+    <div v-if="opencompletecustom" class="opencustom-container">
       <div
+        class="customname"
         v-for="(custom, index) in completecustom.custom"
         v-bind:key="index"
         v-bind:value="custom"
       >
-        {{ custom.customname }}
+        カスタム： {{ custom.customname }}
       </div>
-    </div>
-    <div>
       <div>
-        <img
-          v-if="opencustomimage"
-          v-bind:src="require(`@/assets/${completecustom.drink_image}.png`)"
-        />
+        <div>
+          <img
+            class="drinkimg"
+            v-if="opencustomimage"
+            v-bind:src="require(`@/assets/${completecustom.drink_image}.png`)"
+          />
+        </div>
+        <div>
+          <div
+            class="drinkmaster"
+            v-for="(custom, index) in completecustom.custom"
+            v-bind:key="index"
+            v-bind:value="custom"
+          >
+            <img
+              class="customimg"
+              v-if="opencustomimage"
+              v-bind:src="
+                require(`@/assets/custom.img/${custom.customimage}.png`)
+              "
+            />
+          </div>
+        </div>
       </div>
-      <div
-        v-for="(custom, index) in completecustom.custom"
-        v-bind:key="index"
-        v-bind:value="custom"
+      <button
+        v-on:click="registerFavorite"
+        class="button btn btn--orange btn--radius register-favorite"
       >
-        <img
-          v-if="opencustomimage"
-          v-bind:src="require(`@/assets/custom.img/${custom.customimage}.png`)"
-        />
-      </div>
-    </div>
-    <div>
-      <button v-on:click="registerFavorite">お気に入り登録</button>
+        お気に入り登録
+      </button>
     </div>
   </div>
 </template>
+<style>
+.SlectOption {
+  font-size: 20px;
+}
+.selectchoice {
+  width: 150px;
+  height: 60px;
+  font-size: 20px;
+  display: block;
+  margin-right: 30px;
+}
+.startfeel {
+  text-align: center;
+  margin-bottom: 100px;
+  font-size: 25px;
+}
+.rich-container {
+  background-color: #f5ede6;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-left: 108px;
+  padding-bottom: 20px;
+  font-size: 19px;
+}
+.sweet-container {
+  margin-left: 120px;
+  margin-bottom: 100px;
+  font-size: 19px;
+}
+.claroe-container {
+  margin-left: 120px;
+  margin-bottom: 100px;
+  font-size: 19px;
+}
+.decided-feel {
+  background-color: #f5ede6;
+  font-size: 19px;
+  display: flex;
+}
+.send-perfect {
+  text-align: center;
+  margin-top: 50px;
+  margin-left: 100px;
+  width: 100px;
+  height: 100px;
+  float: right;
+}
+.selectchoice {
+  text-align: center;
+  margin: auto;
+}
+.opencustom-container {
+  width: 500px;
+  height: 500px;
+  background-color: #f5ede6;
+  margin-right: 100px;
+  margin-top: 30px;
+  margin-left: 500px;
+}
+.customnam {
+  display: inline-block;
+  margin-left: 100px;
+}
+.drinkmaster {
+  display: flex;
+  flex-wrap: wrap;
+}
+.customimg {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+}
+.drinkimg {
+  width: 150px;
+  height: 150px;
+  margin-left: 200px;
+}
+.button1 {
+  margin-right: 30px;
+  margin-left: 20px;
+  width: 100px;
+  height: 50px;
+  font-weight: 200;
+  font-size: 20px;
+}
+.btn--orange,
+.btn--orange {
+  color: #020826;
+  background-color: #eaddcf;
+}
+.btn--orange:hover,
+.btn--orange:hover {
+  color: #020826;
+  background: #eaddcf;
+}
 
+.btn--radius {
+  border-radius: 100vh;
+}
+.button {
+  width: 200px;
+  height: 100px;
+  font-size: 20px;
+}
+.selectedstatus {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 20px;
+}
+.register-favorite {
+  margin-left: 200px;
+}
+.decidebutton {
+}
+</style>
 <script>
 import customchoices from "../assets/custom.json"
 import { collection, addDoc, Timestamp } from "firebase/firestore"
@@ -236,6 +390,7 @@ export default {
         drink: this.completecustom.product_name,
         price: this.completecustom.price,
         count: this.completecustom.count,
+        custom: this.completecustom.custom,
         switchDisabled: false,
         changeDetail: "詳細へ",
         onOff: false,
